@@ -1,7 +1,7 @@
 <?php
     // Enter your host name, database username, password, and database name.
     // If you have not set database password on localhost then set empty.
-    //This is one thing
+    //  This is one thing that I do here
     $con = mysqli_connect("localhost","root","Tyrion@00","LoginSystem");
     // Check connection
     if (mysqli_connect_errno()){
