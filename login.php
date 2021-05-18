@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +11,9 @@
 <?php
     require('db.php');
     session_start();
+    
+    //chal be chutiye
+    
     // When form submitted, check and create user session.
     if (isset($_POST['username'])) {
         $username = stripslashes($_REQUEST['username']);    // removes backslashes
