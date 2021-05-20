@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,9 +9,6 @@
 <?php
     require('db.php');
     session_start();
-    
-    //chal be chutiye
-    
     // When form submitted, check and create user session.
     if (isset($_POST['username'])) {
         $username = stripslashes($_REQUEST['username']);    // removes backslashes
@@ -42,7 +37,7 @@
         <input type="text" class="login-input" name="username" placeholder="Username" autofocus="true"/>
         <input type="password" class="login-input" name="password" placeholder="Password"/>
         <input type="submit" value="Login" name="submit" class="login-button"/>
-        <p class="link">Don't have an account? <a href="registration.php">Registration Now</a></p>
+        <p class="link">Don't have an account? <a href="registration.php">Register now</a></p>
   </form>
 <?php
     }

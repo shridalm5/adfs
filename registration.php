@@ -21,19 +21,44 @@
         $create_datetime = date("Y-m-d H:i:s");
         $query    = "INSERT into `users` (username, password, email, create_datetime)
                      VALUES ('$username', '" . md5($password) . "', '$email', '$create_datetime')";
+      
+        $sql = "SELECT username FROM `users` WHERE username = '$username'" ;
+        $check   = mysqli_query($con, $sql);
+
+        $row = mysqli_num_rows($check);
+
         $result   = mysqli_query($con, $query);
-        if ($result) {
+
+        if ($row==0 && $result) {
             echo "<div class='form'>
                   <h3>You are registered successfully.</h3><br/>
                   <p class='link'>Click here to <a href='login.php'>Login</a></p>
                   </div>";
-        } else {
+        }
+        elseif ($row > 0) {
+             echo "<div class='form'>
+                  <h3>Username is alredy taken</h3><br/>
+                  <p class='link'>Click here to <a href='registration.php'>registration</a> again.</p>
+                  </div>";
+             
+         } 
+        else {
             echo "<div class='form'>
                   <h3>Required fields are missing.</h3><br/>
                   <p class='link'>Click here to <a href='registration.php'>registration</a> again.</p>
                   </div>";
         }
-    } else {
+    
+
+
+
+
+
+    }
+
+
+
+     else {
 ?>
     <form class="form" action="" method="post">
         <h1 class="login-title">Registration</h1>
