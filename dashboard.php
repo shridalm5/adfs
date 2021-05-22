@@ -13,6 +13,17 @@ include("auth_session.php");
     <div class="form">
         <p>Hey, <?php echo $_SESSION['username']; ?>!</p>
         <p>You are in user dashboard page.</p>
+         
+
+
+        <form action="upload.php" method="post" enctype="multipart/form-data">
+            Select image to upload:
+        <input type="file" name="fileToUpload" id="fileToUpload"><br>
+        <input type="submit" value="Upload Image" name="submit">
+        </form>
+
+          
+
         <p><a href="logout.php">Logout</a></p>
     </div>
 </body>
