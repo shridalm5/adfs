@@ -1,5 +1,7 @@
+<link rel="stylesheet" href="style.css"/>
 
- <link rel="stylesheet" href="style.css"/>
+
+
 <?php
 $target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
@@ -56,4 +58,39 @@ if ($uploadOk == 0) {
     echo "Sorry, there was an error uploading your file.";
   }
 }
+
+
+
+
+
+
 ?>
+
+<?php
+    require('db.php');
+    // When form submitted, insert values into the database. 
+         
+         $opencv = stripslashes($_REQUEST['opencv']);
+         $opencv = mysqli_real_escape_string($con, $opencv);
+
+
+      
+      
+                   $my=$_FILES["fileToUpload"]["name"];
+                 $command = escapeshellcmd("/var/www/html/adfs/first.py3 '". $my ."'");
+
+                 $output = shell_exec($command);
+                 $output = stripslashes($output);
+                 $output = mysqli_real_escape_string($con, $output);
+                 echo $output;
+
+
+
+        $query    = "INSERT into `img` (filename,ocr,opencv)
+                     VALUES ('" . basename($_FILES["fileToUpload"]["name"]) . "','$output', '$opencv')";
+                   $result   = mysqli_query($con, $query);
+
+
+
+?>
+

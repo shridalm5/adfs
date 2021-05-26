@@ -13,20 +13,14 @@ include("auth_session.php");
     <div class="form">
         <p>Hey, <?php echo $_SESSION['username']; ?>!</p>
         <p>You are in user dashboard page.</p>
-         
-
-
-        <form action="upload.php" method="post" enctype="multipart/form-data">
-            Select image to upload:
-        <input type="file" name="fileToUpload" id="fileToUpload"><br>
-        Opencv Input<br>
-        <input type="text" name="opencv"><br>
-        <input type="submit" value="Upload Image" name="submit">
+        <form action="search2.php" method="post" enctype="multipart/form-data">
+            Search an image:<br>
+        <input type="text" name="search"><br>
+        <input type="submit" value="Search" name="submit">
         </form>
 
-          
-        <p><a href="search.php">Search</a></p>
         <p><a href="logout.php">Logout</a></p>
+      
     </div>
 </body>
 </html>

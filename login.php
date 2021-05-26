@@ -42,6 +42,7 @@
         <input type="submit" value="Login" name="submit" class="login-button"/>
         <p class="link">Don't have an account? <a href="registration.php">Register Now</a></p>
   </form>
+  <p><a href="test.php">click here</a></p>
 <?php
     }
 ?>
